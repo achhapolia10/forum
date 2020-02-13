@@ -4,4 +4,4 @@ import {hydrate} from "react-dom";
 
 import App from './app'
 
-hydrate(<App/>);
+hydrate(<App/>,document.getElementById("reactapp"));
