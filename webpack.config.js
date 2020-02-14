@@ -3,7 +3,7 @@ const path = require("path");
 const config = {
     entry: {
         vendor: ["@babel/polyfill", "react"],
-        app: ["./src/components/index.jsx"]
+        index: ["./src/components/entrypoints/index.jsx"]
     },
     output: {
         path: path.resolve(__dirname, "src", "public"),
@@ -19,7 +19,7 @@ const config = {
                         presets: ["@babel/preset-env", "@babel/preset-react"]
                     }
                 },
-                exclude: /node_modules/
+                exclude: [/node_modules/, /public/]
             }
         ]
     },
