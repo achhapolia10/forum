@@ -6,8 +6,7 @@
   "scripts": {
     "webpack": "webpack -wd",
     "build": "webpack --mode production",
-    "dev": "nodemon --exec babel-node src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +27,6 @@
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
@@ -42,7 +40,6 @@
     "compression": "^1.7.4",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "handlebars": "^4.7.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
