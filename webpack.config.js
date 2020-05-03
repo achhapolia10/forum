@@ -3,9 +3,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const pages = ['index']
+
+const generateEntryPoints = (entry) => {
+    return entry.reduce((obj, item) => {
+        return {
+            ...obj,
+            [item]: [path.resolve('src', 'components', 'entrypoints', `${item}.jsx`)]
+        }
+    }, {})
+}
+
+const generateHtml = (entry) => {
+    return entry.map((i) => {
+        return new HtmlWebpackPlugin({
+            chunks: [i],
+            filename: `../views/pages/${i}.ejs`,
+            template: path.join('src', 'views', 'pages', 'template.ejs')
+        })
+
+    })
+}
+
+
 const config = [{
     entry: {
-        index: [path.resolve('src', 'components', 'entrypoints', 'index.jsx')]
+        ...generateEntryPoints(pages)
     },
 
     output: {
@@ -63,11 +86,8 @@ const config = [{
         new MiniCssExtractPlugin({
             chunkFilename: 'css/[hash].css'
         }),
-        new HtmlWebpackPlugin({
-            chunks: ['index'],
-            filename: '../views/pages/index.ejs',
-            template: path.join('src', 'views', 'pages', 'index.ejs')
-        })
+        // Ejs pages
+        ...generateHtml(pages)
     ]
 }]
 
