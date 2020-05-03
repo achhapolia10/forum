@@ -7,13 +7,12 @@ import path from "path";
 const app = express();
 
 // View engine setup
-app.set("views", path.join(__dirname,"views"));
+app.set("views", path.join(__dirname, 'static', "views"));
 app.set("view engine", "ejs");
 
 // Middleware
 app.use(compression());
-console.log(__dirname);
-app.use(express.static(__dirname + "/public"));
+app.use('/public', express.static(path.join(__dirname, 'static', 'public')));
 
 //Routes
 app.use("/", index);

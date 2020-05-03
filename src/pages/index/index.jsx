@@ -3,7 +3,7 @@ import React from "react";
 class Index extends React.Component {
     constructor() {
         super();
-        this.state = {name: "a", email: ""}
+        this.state = { name: "a", email: "" }
     }
 
 
@@ -12,30 +12,30 @@ class Index extends React.Component {
     }
 
     onNameChangeHandler = (event) => {
-        this.setState({name: event.target.value});
+        this.setState({ name: event.target.value });
     }
 
     onEmailChangeHandler = (event) => {
-        this.setState({email: event.target.value});
+        this.setState({ email: event.target.value });
     }
 
     render() {
         return (
             <div>
-                <h1>Smoke -h</h1>
+                <h1 className='heading'>Smoke -h</h1>
                 <form onSubmit={this.onFormSubmit}>
                     <div>
                         <label htmlFor={"name-input"} defaultValue={"Name"}>Name: </label>
                         <input name={"name-input"} onChange={this.onNameChangeHandler} type={"text"}
-                               value={this.state.name}/>
+                            value={this.state.name} />
                     </div>
-                    <br/>
+                    <br />
                     <div>
                         <label htmlFor={"email-input"} defaultValue={"Email"}>Email: </label>
                         <input name={"email-input"} onChange={this.onEmailChangeHandler} type={"email"}
-                               placeholder={"email"} value={this.state.email}/>
+                            placeholder={"email"} value={this.state.email} />
                     </div>
-                    <br/>
+                    <br />
                     <div>
                         <button type={"submit"}>Submit</button>
                     </div>
