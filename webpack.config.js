@@ -2,8 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const production = process.env.NODE_ENV === 'production'
 
-const pages = ['index']
+const pages = ['index', 'about']
 
 const generateEntryPoints = (entry) => {
     return entry.reduce((obj, item) => {
@@ -24,6 +25,7 @@ const generateHtml = (entry) => {
 
     })
 }
+console.log(generateEntryPoints(pages))
 
 
 const config = [{
@@ -33,7 +35,7 @@ const config = [{
 
     output: {
         path: path.resolve(__dirname, 'src', 'static', 'public'),
-        filename: 'js/[chunkhash].js',
+        filename: production ? 'js/[chunkhash].js' : 'js/[name].js',
         publicPath: '/public'
     },
 
@@ -84,7 +86,8 @@ const config = [{
         new CleanWebpackPlugin(),
         // create blog,
         new MiniCssExtractPlugin({
-            chunkFilename: 'css/[hash].css'
+            filename: production ? 'css/[contentHash].css' : 'css/[id].css',
+            chunkFilename: production ? 'css/[contentHash].css' : 'css/[id].css'
         }),
         // Ejs pages
         ...generateHtml(pages)
