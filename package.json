@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack -wd",
-    "build": "webpack --mode production",
+    "build": "NODE_ENV=production webpack --mode production",
     "dev": "COMPILER_ENV=server nodemon --exec babel-node src/server.js"
   },
   "repository": {

@@ -1,7 +1,7 @@
 import React from "react";
 
-import './global.css'
-import './index.css'
+import global from './global.css'
+import index from './index.css'
 
 import img from './img.jpg'
 

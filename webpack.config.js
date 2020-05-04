@@ -32,7 +32,7 @@ const config = [{
     },
 
     output: {
-        path: path.resolve(__dirname, 'src', 'static', 'public'),
+        path: production ? path.resolve(__dirname, 'dist', 'static', 'public') : path.resolve(__dirname, 'src', 'static', 'public'),
         filename: production ? 'js/[chunkhash].js' : 'js/[name].js',
         publicPath: '/public'
     },
