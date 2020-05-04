@@ -35,7 +35,7 @@ if (process.env.COMPILER_ENV === 'server') {
       "name": "[hash].[ext]",
       "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
       "publicPath": "/public/img",
-      "outputPath": "/static/public/img",
+      "outputPath": null
     }
   ])
 }
