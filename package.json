@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack -wd",
-    "build": "webpack --mode production",
-    "dev": "COMPILER_ENV=server nodemon --exec babel-node src/server.js"
+    "webpack": "webpack -d",
+    "dev": "nodemon --exec 'npm run webpack &&  COMPILER_ENV=server babel-node src/server.js'",
+    "webpack-production": "NODE_ENV=production webpack -p",
+    "babel-production": "NODE_ENV=production COMPILER_ENV=server babel --out-dir dist src",
+    "start": "node dist/server.js",
+    "build": "npm run webpack-production && npm run babel-production"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,11 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/smoke-trees/forum/issues"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/static/**/*"
+    ]
   },
   "homepage": "https://github.com/smoke-trees/forum#readme",
   "devDependencies": {
