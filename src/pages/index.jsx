@@ -1,5 +1,10 @@
 import React from "react";
 
+import './global.css'
+import './index.css'
+
+import img from './img.jpg'
+
 class Index extends React.Component {
     constructor() {
         super();
@@ -42,7 +47,8 @@ class Index extends React.Component {
                 </form>
                 <span><h5>Name: {this.state.name}</h5></span>
                 <span><h5>Email: {this.state.email}</h5></span>
-            </div>
+                <img src={img} alt='something' />>
+            </div >
         )
     }
 }

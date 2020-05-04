@@ -6,7 +6,7 @@
   "scripts": {
     "webpack": "webpack -wd",
     "build": "webpack --mode production",
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "COMPILER_ENV=server nodemon --exec babel-node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,8 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-file-loader": "^2.0.0",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",

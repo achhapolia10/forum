@@ -25,8 +25,6 @@ const generateHtml = (entry) => {
 
     })
 }
-console.log(generateEntryPoints(pages))
-
 
 const config = [{
     entry: {
@@ -47,7 +45,6 @@ const config = [{
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/preset-env', '@babel/preset-react'],
-
                     }
                 },
                 exclude: [/node_modules/, /static/]
@@ -55,7 +52,7 @@ const config = [{
                 test: /\.ejs$/,
                 loader: 'raw-loader'
             }, {
-                test: /\.(css)/,
+                test: /\.(css)$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
                     options: {
@@ -63,6 +60,16 @@ const config = [{
                     }
 
                 }, 'css-loader']
+            }, {
+                test: /\.(jpg|jpeg|png|svg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[md5:hash:hex].[ext]',
+                        publicPath: '/public/img',
+                        outputPath: 'img',
+                    }
+                }]
             }
         ]
     },

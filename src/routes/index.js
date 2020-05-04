@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     res.status(200).render('pages/index', { reactApp: reactComp });
 })
 router.get('/about', async (req, res) => {
-    const reactComp = renderToString(<about />);
+    const reactComp = renderToString(<About />);
     res.status(200).render('pages/about', { reactApp: reactComp });
 });
 

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import "./about.css"
+import "./global.css"
 
 export class About extends Component {
     render() {
