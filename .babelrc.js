@@ -21,23 +21,26 @@ const plugins = [
 if (process.env.COMPILER_ENV === 'server') {
   plugins.push(
     [
-      "babel-plugin-transform-require-ignore",
+      "file-loader",
       {
-        "extensions": [
-          ".less",
-          ".sass",
-          ".css"
-        ]
-      }
-    ], [
-    "file-loader",
-    {
-      "name": "[hash].[ext]",
-      "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
-      "publicPath": "/public/img",
-      "outputPath": null
-    }
-  ])
+        "name": "[hash].[ext]",
+        "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
+        "publicPath": "/public/img",
+        "outputPath": null
+      },
+      "img-file-loader-plugin"
+    ],
+    [
+      "file-loader",
+      {
+        "name": "[hash].[ext]",
+        "extensions": ["css", "sass", "scss"],
+        "publicPath": "/public/css",
+        "outputPath": null
+      },
+      "css-file-loader-plugin"
+    ],
+  )
 }
 
 const addConfigs = { ignore: ["./src/static/"] }
